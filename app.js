@@ -206,6 +206,9 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
     switch (action) {
         
         case "show_quick_replies_menu" : 
+            
+            	console.log("b4 calling showQuickRepliesMenu......."); 
+            
         		showQuickRepliesMenu(sender,messages);
         		break;
         
