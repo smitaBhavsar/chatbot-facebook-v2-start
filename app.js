@@ -883,7 +883,7 @@ function greetUserText(userId) {
                 console.log("FB user: %s %s, %s",
                     user.first_name, user.last_name, user.gender);
 
-                sendTextMessage(userId, "Welcome " + user.first_name + ' ' + user.last_name + '!' + 'This is your chatbot.How can I help you?');
+                sendTextMessage(userId, "Welcome " + user.first_name + ' ' + user.last_name + '!' + 'This is your chatbot.How can I assist you?');
             } else {
                 console.log("Cannot get data for fb user with id",
                     userId);
