@@ -204,6 +204,11 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
+        
+        case "show_quick_replies_menu" : 
+        		showQuickRepliesMenu();
+        		break;
+        
         default:
             //unhandled action, just send back the text
             handleMessages(messages, sender);
@@ -894,6 +899,30 @@ function greetUserText(userId) {
 
     });
 }
+
+
+function showQuickRepliesMenu()
+{
+		let replies = [
+                        {
+                            "content_type":"text",
+                            "title":"Less than 1 year",
+                            "payload":"Less than 1 year"
+                        },
+                        {
+                            "content_type":"text",
+                            "title":"Less than 10 years",
+                            "payload":"Less than 10 years"
+                        },
+                        {
+                            "content_type":"text",
+                            "title":"More than 10 years",
+                            "payload":"More than 10 years"
+                        }
+                    ];
+                    sendQuickReply(sender, messages[0].text.text[0], replies);
+}
+
 
 
 // Spin up the server
