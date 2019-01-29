@@ -715,6 +715,11 @@ function receivedPostback(event) {
     var payload = event.postback.payload;
 
     switch (payload) {
+    
+    	case 'GET_STARTED':
+    		greetUserText(senderID);
+    		break;
+    	
         default:
             //unindentified payload
             sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
@@ -859,6 +864,37 @@ function isDefined(obj) {
 
     return obj != null;
 }
+
+
+function greetUserText(userId) {
+    //first read user firstname
+    request({
+        uri: 'https://graph.facebook.com/v2.7/' + userId,
+        qs: {
+            access_token: config.FB_PAGE_TOKEN
+        }
+
+    }, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+
+            var user = JSON.parse(body);
+
+            if (user.first_name) {
+                console.log("FB user: %s %s, %s",
+                    user.first_name, user.last_name, user.gender);
+
+                sendTextMessage(userId, "Welcome " + user.first_name + '!' + 'This is your chatbot.How can I help you?');
+            } else {
+                console.log("Cannot get data for fb user with id",
+                    userId);
+            }
+        } else {
+            console.error(response.error);
+        }
+
+    });
+}
+
 
 // Spin up the server
 app.listen(app.get('port'), function () {
