@@ -206,7 +206,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
     switch (action) {
         
         case "show_quick_replies_menu" : 
-        		showQuickRepliesMenu();
+        		showQuickRepliesMenu(sender,messages);
         		break;
         
         default:
@@ -901,7 +901,7 @@ function greetUserText(userId) {
 }
 
 
-function showQuickRepliesMenu()
+function showQuickRepliesMenu(sender,messages)
 {
 		let replies = [
                         {
