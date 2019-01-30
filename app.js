@@ -9,6 +9,9 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 
+const webviews = require('./routes/webviews');
+
+
 
 // Messenger API parameters junk12345
 if (!config.FB_PAGE_TOKEN) {
@@ -80,6 +83,10 @@ const sessionIds = new Map();
 app.get('/', function (req, res) {
     res.send('Hello world, I am a botwithHeroku')
 })
+
+
+app.use('/webviews',webviews);
+
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
