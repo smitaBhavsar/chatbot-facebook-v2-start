@@ -23,8 +23,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
         {
           "type":"web_url",
           "title":"Show Webview",
-          "url":"https://google.co.in", 
-          "webview_height_ratio" : "tall",
+          "url":"https://nameless-forest-79990.herokuapp.com/webviews/webview", 
+          "webview_height_ratio" :"tall",
           "messenger_extensions" : true
         },
         {
