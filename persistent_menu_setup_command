@@ -21,9 +21,11 @@ curl -X POST -H "Content-Type: application/json" -d '{
           ]
         },
         {
-          "type":"postback",
-          "title":"Fun news",
-          "payload":"FUN_NEWS"
+          "type":"web_url",
+          "title":"Show Webview",
+          "url":"https://nameless-forest-79990.herokuapp.com/webviews/webview", 
+          "webview_height_ratio":"tall",
+          "messenger_extensions" : true
         },
         {
           "type":"postback",
