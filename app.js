@@ -39,8 +39,8 @@ if (!config.SERVER_URL) { //used for ink to static files
     throw new Error('missing SERVER_URL');
 }
 
-
-app.set('view engine', 'html');
+app.set('views', './views')
+app.set('view engine', 'ejs');
 
 app.set('port', (process.env.PORT || 5000))
 
