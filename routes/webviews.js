@@ -7,8 +7,7 @@ const router = express.Router();
 
 
 router.get('/webview', function (req, res) {
-res.render('error', { error: err });
-  
+    res.render('webview-page');
 });
 
 
