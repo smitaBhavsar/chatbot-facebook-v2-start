@@ -8,9 +8,20 @@
 </head>
 <body>
 <div class="container">
-    THIS IS A SAMPLE WEBVIEW
-</div>
+    THIS IS A NEW SAMPLE WEBVIEW
+    <h3>Choose Color</h3>
+    <form action="/webviews/saveColor" method="get">
+        <input type="hidden" name="psid" id="psid">
 
+        <h5>Choose Colors</h5>
+        <input type="checkbox" name="topics[]" value="red"> Red<br/>
+        <input type="checkbox" name="topics[]" value="green"> Green<br/>
+        <input type="checkbox" name="topics[]" value="yellow"> Yellow<br/>
+ 
+
+        <button id="submitButton" type="submit">Submit</button>
+    </form>
+</div>
 
 
 <script>
@@ -23,6 +34,15 @@
     }(document, 'script', 'Messenger'));
     window.extAsyncInit = function() {
         // the Messenger Exstensions JS SDK is done loading
+        
+         document.getElementById('submitButton').addEventListener('click', function() {
+            MessengerExtensions.requestCloseBrowser(function success() {
+                // webview closed
+            }, function error(err) {
+                // an error occured
+            });
+        });
+        
     };
 </script>
 </body>
