@@ -6,8 +6,8 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/webview', function (req, res) {
-    res.render('webview-page');
+router.get('/webview', function (req, resp) {
+    resp.render('webview-page');
 });
 
 
